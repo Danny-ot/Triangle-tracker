@@ -40,5 +40,8 @@ $(document).ready(function(){
         else if(Isoceles(firstSide , secondSide , thirdSide)){
             $("#result").text("Isoceles Triangle")
         }
+        else if(scalene(firstSide , secondSide , thirdSide)){
+            $("#result").text("Scalene Triangle")
+        }
     })
 })
