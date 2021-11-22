@@ -1,32 +1,42 @@
 function Equilateral(side1 , side2 , side3){
-    if(side1 === side2 && side1 === side3 && side2 === side1 && side2 === side3 && side3 === side1 && side3 === side2){
+    if(side1 === side2 && side2 === side1 && side3 === side1 && side2 === side3 && side3 === side1 && side3 === side2){
         return true;
     } else{
         return false;
     }
 }
-function Isoceles(side1 , side2 , side3){
-    if(side1 === side2 || side1 === side3 || side2 === side3){
+
+function isosceles(side1, side2, side3) {
+   
+     if (side1 === side3 || side2 === side3 || side1 === side2) {
         return true;
     }
     else{
         return false;
     }
 }
+
 function scalene(side1 , side2 , side3){
-    if(side1 !== side2 && side2 !== side3 && side1 !== side3 && side2 !== side1 && side3 !== side2 && side3 !== side1){
-        return true;   
-    }else{
+    if(Equilateral(side1, side2, side3)) {
         return false;
     }
+
+    else if(isosceles(side1, side2, side3)){
+        return false;   
+    }
+    else{
+        return true;
+    }
 } 
+
 function notTriangle(side1 , side2 , side3){
-    if(side1 < side2 + side3 || side2 < side1 +side3 || side3 < side1 + side2){
+    if(side1 + side2 < side3 || side2 + side3 < side1 || side3 + side1 <side2){
         return true
     }else{
         return false;
     }
 }
+
 $(document).ready(function(){
     $("#triangle").submit(function(event){
         event.preventDefault();
@@ -36,12 +46,18 @@ $(document).ready(function(){
 
         if(Equilateral(firstSide , secondSide , thirdSide)){
             $("#result").text("Equilateral Triangle")
+        } 
+        else if(notTriangle(firstSide, secondSide, thirdSide)) {
+            $("#result").text("cannot form a triangle");
         }
-        else if(Isoceles(firstSide , secondSide , thirdSide)){
+        else if(isosceles(firstSide , secondSide , thirdSide)){
             $("#result").text("Isoceles Triangle")
         }
+        
+       
         else if(scalene(firstSide , secondSide , thirdSide)){
             $("#result").text("Scalene Triangle")
         }
+        
     })
 })
