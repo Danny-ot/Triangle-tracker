@@ -28,5 +28,12 @@ function notTriangle(side1 , side2 , side3){
     }
 }
 $(document).ready(function(){
-    $()
+    $("#triangle").submit(function(event){
+        event.preventDefault();
+        const firstSide = parseInt($("#side1").val());
+        const secondSide = parseInt($("#side2").val());
+        const thirdSide = parseInt($("#side3").val());
+
+        
+    })
 })
