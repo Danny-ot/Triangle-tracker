@@ -37,6 +37,8 @@ $(document).ready(function(){
         if(Equilateral(firstSide , secondSide , thirdSide)){
             $("#result").text("Equilateral Triangle")
         }
-        
+        else if(Isoceles(firstSide , secondSide , thirdSide)){
+            $("#result").text("Isoceles Triangle")
+        }
     })
 })
