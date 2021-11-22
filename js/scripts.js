@@ -34,6 +34,9 @@ $(document).ready(function(){
         const secondSide = parseInt($("#side2").val());
         const thirdSide = parseInt($("#side3").val());
 
+        if(Equilateral(firstSide , secondSide , thirdSide)){
+            $("#result").text("Equilateral Triangle")
+        }
         
     })
 })
